@@ -17,7 +17,6 @@
             color: #fff;
         }
         
-        /* Print-specific styles */
         @media print {
             body {
                 background: white;
@@ -27,7 +26,7 @@
             .slide {
                 page-break-after: always;
                 page-break-inside: avoid;
-                background: white !important;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -38,6 +37,11 @@
             
             .navigation {
                 display: none !important;
+            }
+            
+            h1, h2, h3, .subtitle, .team-info, .content, .highlight {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
         
@@ -119,6 +123,9 @@
             display: flex;
             gap: 20px;
             z-index: 1000;
+            background: rgba(26, 26, 46, 0.9);
+            padding: 20px;
+            border-radius: 10px;
         }
         
         button {
@@ -221,7 +228,7 @@
             </ul>
             <p style="margin-top: 30px;"><strong>Date:</strong> January 2026</p>
         </div>
-        <div class="slide-number">1</div>
+        <div class="slide-number">1 / 13</div>
     </div>
 
     <!-- Slide 2: Project Overview -->
@@ -247,7 +254,7 @@
                 <li>Focus on cloud infrastructure rather than application development</li>
             </ul>
         </div>
-        <div class="slide-number">2</div>
+        <div class="slide-number">2 / 13</div>
     </div>
 
     <!-- Slide 3: Completion Status -->
@@ -284,7 +291,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-number">3</div>
+        <div class="slide-number">3 / 13</div>
     </div>
 
     <!-- Slide 4: Solution Architecture -->
@@ -323,7 +330,7 @@
                 </div>
             </div>
         </div>
-        <div class="slide-number">4</div>
+        <div class="slide-number">4 / 13</div>
     </div>
 
     <!-- Slide 5: Architecture Diagram -->
@@ -331,49 +338,31 @@
         <h2>Cloud Architecture Diagram</h2>
         <div style="text-align: center; margin-top: 40px;">
             <div style="background: white; padding: 40px; border-radius: 10px; display: inline-block;">
-                <svg width="800" height="500" viewBox="0 0 800 500">
-                    <!-- VPC -->
+                <svg width="800" height="400" viewBox="0 0 800 500">
                     <rect x="50" y="50" width="700" height="400" fill="none" stroke="#0f3460" stroke-width="3" rx="10"/>
                     <text x="70" y="80" fill="#0f3460" font-size="20" font-weight="bold">VPC</text>
-                    
-                    <!-- Public Subnet -->
                     <rect x="80" y="100" width="300" height="150" fill="#e1f5ff" stroke="#00d4ff" stroke-width="2" rx="5"/>
                     <text x="100" y="125" fill="#0f3460" font-size="16" font-weight="bold">Public Subnet</text>
-                    
-                    <!-- Private Subnet -->
                     <rect x="80" y="270" width="300" height="150" fill="#ffe1e1" stroke="#e94560" stroke-width="2" rx="5"/>
                     <text x="100" y="295" fill="#0f3460" font-size="16" font-weight="bold">Private Subnet</text>
-                    
-                    <!-- Load Balancer -->
                     <rect x="110" y="140" width="120" height="50" fill="#00d4ff" rx="5"/>
                     <text x="130" y="170" fill="white" font-size="14" font-weight="bold">Load Balancer</text>
-                    
-                    <!-- EC2 Instances -->
                     <rect x="250" y="140" width="100" height="50" fill="#4CAF50" rx="5"/>
                     <text x="270" y="165" fill="white" font-size="12" font-weight="bold">EC2</text>
                     <text x="265" y="180" fill="white" font-size="12" font-weight="bold">Instance</text>
-                    
-                    <!-- RDS -->
                     <rect x="110" y="310" width="240" height="80" fill="#e94560" rx="5"/>
                     <text x="180" y="345" fill="white" font-size="16" font-weight="bold">Amazon RDS</text>
                     <text x="165" y="370" fill="white" font-size="12">(MySQL/PostgreSQL)</text>
-                    
-                    <!-- Auto Scaling -->
                     <rect x="420" y="200" width="300" height="100" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
                     <text x="440" y="225" fill="#0f3460" font-size="16" font-weight="bold">Auto Scaling Group</text>
                     <text x="440" y="250" fill="#666" font-size="12">• Min: 2 instances</text>
                     <text x="440" y="270" fill="#666" font-size="12">• Max: 6 instances</text>
                     <text x="440" y="290" fill="#666" font-size="12">• Target: CPU 70%</text>
-                    
-                    <!-- Internet Gateway -->
                     <ellipse cx="400" cy="30" rx="80" ry="20" fill="#9c27b0"/>
                     <text x="345" y="37" fill="white" font-size="14" font-weight="bold">Internet Gateway</text>
-                    
-                    <!-- Arrows -->
                     <line x1="400" y1="50" x2="170" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
                     <line x1="230" y1="165" x2="250" y2="165" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
                     <line x1="300" y1="190" x2="230" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                    
                     <defs>
                         <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
                             <polygon points="0 0, 10 3, 0 6" fill="#333"/>
@@ -382,7 +371,7 @@
                 </svg>
             </div>
         </div>
-        <div class="slide-number">5</div>
+        <div class="slide-number">5 / 13</div>
     </div>
 
     <!-- Slide 6: Budget Projection -->
@@ -440,7 +429,7 @@
                 <strong>Cost per user (1000 users):</strong> ~$0.22/month
             </p>
         </div>
-        <div class="slide-number">6</div>
+        <div class="slide-number">6 / 13</div>
     </div>
 
     <!-- Slide 7: Demo Placeholder -->
@@ -462,7 +451,7 @@
                 <em>Duration: 3-5 minutes</em>
             </p>
         </div>
-        <div class="slide-number">7</div>
+        <div class="slide-number">7 / 13</div>
     </div>
 
     <!-- Slide 8: Individual Contribution - Student A -->
@@ -480,8 +469,7 @@
                     <li>Configured CloudFront CDN for static content delivery</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Key Achievements</strong>
                 <ul style="margin-top: 10px;">
                     <li>Reduced page load time by 40% through optimization</li>
@@ -489,8 +477,7 @@
                     <li>Implemented health checks for high availability</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Challenges Overcome</strong>
                 <ul style="margin-top: 10px;">
                     <li>Resolved session management across multiple instances</li>
@@ -498,7 +485,7 @@
                 </ul>
             </div>
         </div>
-        <div class="slide-number">8</div>
+        <div class="slide-number">8 / 13</div>
     </div>
 
     <!-- Slide 9: Individual Contribution - Student B -->
@@ -516,8 +503,7 @@
                     <li>Implemented database encryption at rest</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Key Achievements</strong>
                 <ul style="margin-top: 10px;">
                     <li>Zero-downtime migration from EC2 to RDS</li>
@@ -525,8 +511,7 @@
                     <li>Configured read replicas for scalability</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Challenges Overcome</strong>
                 <ul style="margin-top: 10px;">
                     <li>Managed character encoding issues during migration</li>
@@ -534,7 +519,7 @@
                 </ul>
             </div>
         </div>
-        <div class="slide-number">9</div>
+        <div class="slide-number">9 / 13</div>
     </div>
 
     <!-- Slide 10: Individual Contribution - Student C -->
@@ -552,8 +537,7 @@
                     <li>Configured route tables and Internet Gateway</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Key Achievements</strong>
                 <ul style="margin-top: 10px;">
                     <li>Implemented defense-in-depth security strategy</li>
@@ -561,8 +545,7 @@
                     <li>Documented complete network architecture</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Challenges Overcome</strong>
                 <ul style="margin-top: 10px;">
                     <li>Troubleshot routing issues between subnets</li>
@@ -570,7 +553,7 @@
                 </ul>
             </div>
         </div>
-        <div class="slide-number">10</div>
+        <div class="slide-number">10 / 13</div>
     </div>
 
     <!-- Slide 11: Individual Contribution - Student D -->
@@ -588,8 +571,7 @@
                     <li>Performed cost analysis using AWS Pricing Calculator</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Key Achievements</strong>
                 <ul style="margin-top: 10px;">
                     <li>Full infrastructure reproducible via Terraform code</li>
@@ -597,8 +579,7 @@
                     <li>Completed comprehensive cost optimization analysis</li>
                 </ul>
             </div>
-            
-            <div class="component" style="margin-top: 30px;">
+            <div class="component" style="margin-top: 20px;">
                 <strong>Challenges Overcome</strong>
                 <ul style="margin-top: 10px;">
                     <li>Learned Terraform from scratch in 2 weeks</li>
@@ -606,7 +587,7 @@
                 </ul>
             </div>
         </div>
-        <div class="slide-number">11</div>
+        <div class="slide-number">11 / 13</div>
     </div>
 
     <!-- Slide 12: Project Summary -->
@@ -635,7 +616,6 @@
                     </ul>
                 </div>
             </div>
-            
             <h3 style="margin-top: 40px;">What We Would Do Differently Next Time 🔄</h3>
             <ul style="margin-top: 15px;">
                 <li>Start Terraform implementation earlier in the project</li>
@@ -645,7 +625,7 @@
                 <li>Document architecture decisions in real-time</li>
             </ul>
         </div>
-        <div class="slide-number">12</div>
+        <div class="slide-number">12 / 13</div>
     </div>
 
     <!-- Slide 13: Questions -->
@@ -663,11 +643,11 @@
                 <p>January 2026</p>
             </div>
         </div>
-        <div class="slide-number">13</div>
+        <div class="slide-number">13 / 13</div>
     </div>
 
     <div class="navigation">
-        <button onclick="window.print()">🖨️ Print All Slides to PDF</button>
+        <button onclick="window.print()">🖨️ Print All 13 Slides to PDF</button>
     </div>
 </body>
 </html>
