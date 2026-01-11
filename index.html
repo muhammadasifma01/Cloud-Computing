@@ -3,651 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Computing Final Project - Print Version</title>
+    <title>Cloud Computing Final Examination</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a2e;
-            color: #fff;
-        }
-        
-        @media print {
-            body {
-                background: white;
-                color: black;
-            }
-            
-            .slide {
-                page-break-after: always;
-                page-break-inside: avoid;
-                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .slide:last-child {
-                page-break-after: auto;
-            }
-            
-            .navigation {
-                display: none !important;
-            }
-            
-            h1, h2, h3, .subtitle, .team-info, .content, .highlight {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-        
         .slide {
-            width: 100%;
-            min-height: 100vh;
-            padding: 60px 80px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .slide-number {
-            position: absolute;
-            bottom: 30px;
-            right: 40px;
-            font-size: 18px;
-            color: #0f3460;
-            font-weight: bold;
-        }
-        
-        h1 {
-            font-size: 56px;
-            margin-bottom: 30px;
-            color: #e94560;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        h2 {
-            font-size: 42px;
-            margin-bottom: 40px;
-            color: #e94560;
-            border-bottom: 4px solid #0f3460;
-            padding-bottom: 15px;
-        }
-        
-        h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #00d4ff;
-        }
-        
-        .subtitle {
-            font-size: 28px;
-            color: #00d4ff;
-            margin-bottom: 20px;
-        }
-        
-        .content {
-            font-size: 22px;
-            line-height: 1.8;
-        }
-        
-        .content ul {
-            margin-left: 40px;
-            margin-top: 20px;
-        }
-        
-        .content li {
-            margin-bottom: 15px;
-            padding-left: 10px;
-        }
-        
-        .team-info {
-            font-size: 24px;
-            margin-top: 40px;
-            color: #00d4ff;
-        }
-        
-        .navigation {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 1000;
-            background: rgba(26, 26, 46, 0.9);
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: white;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
         }
-        
-        button {
-            background: #e94560;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
+        h1 {
+            color: #2c3e50;
+            text-align: center;
         }
-        
-        button:hover {
-            background: #d63447;
-            transform: scale(1.05);
+        h2 {
+            color: #3498db;
         }
-        
-        .architecture-box {
-            background: rgba(15, 52, 96, 0.3);
-            border: 2px solid #0f3460;
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 20px;
+        h3 {
+            color: #2980b9;
         }
-        
-        .component {
-            background: rgba(0, 212, 255, 0.1);
-            border-left: 4px solid #00d4ff;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
+        ul {
+            margin-left: 20px;
         }
-        
-        .highlight {
-            color: #e94560;
-            font-weight: bold;
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
-        
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 20px;
-        }
-        
-        .budget-table {
+        table {
             width: 100%;
-            margin-top: 20px;
             border-collapse: collapse;
-        }
-        
-        .budget-table th,
-        .budget-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #0f3460;
-        }
-        
-        .budget-table th {
-            background: #0f3460;
-            color: #00d4ff;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background: #0f3460;
-            border-radius: 15px;
-            overflow: hidden;
             margin: 10px 0;
         }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #00d4ff, #e94560);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            width: 100%;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #7f8c8d;
         }
     </style>
 </head>
 <body>
-    <!-- Slide 1: Title -->
+    <!-- Slide 1: Title Slide -->
     <div class="slide">
-        <h1>Cloud Computing Final Project</h1>
-        <div class="subtitle">AWS Cloud Web Application Builder</div>
-        <div class="team-info">
-            <p><strong>Course:</strong> Cloud Computing and Distributed Systems</p>
-            <p><strong>Institution:</strong> University of Europe (UE), Germany</p>
-            <p><strong>Team Members:</strong></p>
-            <ul style="margin-top: 15px;">
-                <li>Student A - [Your Name]</li>
-                <li>Student B - [Team Member Name]</li>
-                <li>Student C - [Team Member Name]</li>
-                <li>Student D - [Team Member Name]</li>
-            </ul>
-            <p style="margin-top: 30px;"><strong>Date:</strong> January 2026</p>
+        <div class="header">
+            <h1>Cloud Computing Final Examination</h1>
+            <p><strong>Course:</strong> Cloud Computing and Distributed Systems<br>
+            <strong>Institution:</strong> University of Europe (UE) for Applied Sciences, Germany<br>
+            <strong>Team:</strong> [Your Team Name]<br>
+            <strong>Date:</strong> January 23, 2026</p>
         </div>
-        <div class="slide-number">1 / 13</div>
     </div>
 
     <!-- Slide 2: Project Overview -->
     <div class="slide">
-        <h2>Project Overview</h2>
-        <div class="content">
-            <h3>Problem Statement</h3>
-            <p>Design and implement a highly available, scalable web application using AWS cloud services.</p>
-            
-            <h3 style="margin-top: 30px;">Main Features</h3>
+        <h2>1. Project Overview</h2>
+        <h3>Problem Statement</h3>
+        <p>We were tasked with implementing a <strong>scalable, highly available web application</strong> using AWS services.</p>
+        <h3>Main Features</h3>
+        <ul>
+            <li>User authentication and authorization</li>
+            <li>Database integration with RDS</li>
+            <li>Load balancing and auto-scaling</li>
+            <li>Secure network configuration (VPC, subnets, security groups)</li>
+        </ul>
+        <h3>Limitations</h3>
+        <ul>
+            <li>Time constraints (6 weeks)</li>
+            <li>Budget constraints (AWS Free Tier limits)</li>
+            <li>Technical constraints (IAM restrictions)</li>
+        </ul>
+        <h3>Assumptions</h3>
+        <ul>
+            <li>Moderate user load (100-500 concurrent users)</li>
+            <li>Data volume under 10GB</li>
+        </ul>
+    </div>
+
+    <!-- Slide 3: Project Completion Status -->
+    <div class="slide">
+        <h2>2. Project Completion Status</h2>
+        <h3>Functional Requirements</h3>
+        <ul>
+            <li>User login and registration</li>
+            <li>Database queries and CRUD operations</li>
+            <li>Auto-scaling for web servers</li>
+        </ul>
+        <h3>Non-Functional Requirements</h3>
+        <ul>
+            <li>High availability (99.9% uptime)</li>
+            <li>Secure data storage (encryption at rest)</li>
+            <li>Scalability (handle 500+ concurrent users)</li>
+        </ul>
+        <h3>Phases Completed</h3>
+        <table>
+            <tr>
+                <th>Phase</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Phase 2</td>
+                <td>EC2 hosting website and database on single VM</td>
+                <td>✅ Completed</td>
+            </tr>
+            <tr>
+                <td>Phase 3</td>
+                <td>Database on RDS</td>
+                <td>✅ Completed</td>
+            </tr>
+            <tr>
+                <td>Phase 4</td>
+                <td>High Availability and scaling (Elastic Beanstalk)</td>
+                <td>✅ Completed</td>
+            </tr>
+        </table>
+        <h3>Incomplete Work</h3>
+        <ul>
+            <li>Advanced monitoring and logging</li>
+            <li>Multi-region deployment</li>
+        </ul>
+    </div>
+
+    <!-- Slide 4: Project Solution Approach -->
+    <div class="slide">
+        <h2>3. Project Solution Approach</h2>
+        <h3>Major Components</h3>
+        <ul>
+            <li>EC2 instances for web servers</li>
+            <li>Amazon RDS for database</li>
+            <li>Elastic Load Balancer for traffic distribution</li>
+            <li>VPC with public and private subnets</li>
+            <li>Security groups and NACLs for network security</li>
+        </ul>
+        <h3>Cloud Architecture Diagram</h3>
+        <p><img src="https://via.placeholder.com/600x400?text=Insert+Cloud+Architecture+Diagram+Here" alt="Cloud Architecture Diagram"></p>
+        <p><strong>Note:</strong> Replace the placeholder image with your actual architecture diagram.</p>
+    </div>
+
+    <!-- Slide 5: Final Project Budget Projection -->
+    <div class="slide">
+        <h2>4. Final Project Budget Projection</h2>
+        <h3>Cost Breakdown (Monthly)</h3>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Estimated Cost (EUR)</th>
+            </tr>
+            <tr>
+                <td>EC2 Instances (2x t3.micro)</td>
+                <td>€20.00</td>
+            </tr>
+            <tr>
+                <td>Amazon RDS (db.t3.micro)</td>
+                <td>€15.00</td>
+            </tr>
+            <tr>
+                <td>Elastic Load Balancer</td>
+                <td>€10.00</td>
+            </tr>
+            <tr>
+                <td>Data Transfer (10GB)</td>
+                <td>€2.00</td>
+            </tr>
+            <tr>
+                <td>EBS Storage (20GB)</td>
+                <td>€3.00</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>€50.00</strong></td>
+            </tr>
+        </table>
+        <p><strong>Note:</strong> Costs are estimated using the AWS Pricing Calculator.</p>
+    </div>
+
+    <!-- Slide 6: Demonstration of Running System -->
+    <div class="slide">
+        <h2>5. Demonstration of Running System</h2>
+        <h3>Live Demo</h3>
+        <ul>
+            <li>Show the running website (3-5 minutes)</li>
+            <li>Walk through the AWS web console:</li>
             <ul>
-                <li><span class="highlight">Cloud-based architecture</span> using AWS services</li>
-                <li><span class="highlight">Scalable infrastructure</span> with load balancing capabilities</li>
-                <li><span class="highlight">Managed database</span> using Amazon RDS</li>
-                <li><span class="highlight">High availability</span> across multiple availability zones</li>
-                <li><span class="highlight">Security implementation</span> with VPC, security groups, and encryption</li>
+                <li>Running EC2 instances or Elastic Beanstalk environments</li>
+                <li>RDS database setup</li>
+                <li>VPC configuration (subnets, security groups)</li>
+                <li>Security features (IAM roles, encryption, firewalls)</li>
             </ul>
-            
-            <h3 style="margin-top: 30px;">Key Assumptions</h3>
-            <ul>
-                <li>Pre-provided application code and database schema</li>
-                <li>AWS Academy lab environment with limited permissions</li>
-                <li>Focus on cloud infrastructure rather than application development</li>
-            </ul>
-        </div>
-        <div class="slide-number">2 / 13</div>
+        </ul>
+        <h3>Backup Screenshots</h3>
+        <p><img src="https://via.placeholder.com/600x400?text=Insert+Demo+Screenshots+Here" alt="Demo Screenshots"></p>
+        <p><strong>Note:</strong> Replace the placeholder image with your demo screenshots.</p>
     </div>
 
-    <!-- Slide 3: Completion Status -->
+    <!-- Slide 7: Individual Contributions -->
     <div class="slide">
-        <h2>Project Completion Status</h2>
-        <div class="content">
-            <h3>Functional Requirements Achieved</h3>
-            <div class="component">
-                <strong>✓ Web Application Deployment</strong><br>
-                Successfully deployed dynamic web application with database backend
-            </div>
-            <div class="component">
-                <strong>✓ Database Management</strong><br>
-                Migrated from EC2-hosted database to Amazon RDS for improved reliability
-            </div>
-            <div class="component">
-                <strong>✓ High Availability Configuration</strong><br>
-                Implemented load balancing and auto-scaling using Elastic Beanstalk
-            </div>
-            
-            <h3 style="margin-top: 30px;">Lab Phases Completed</h3>
-            <div style="margin-top: 20px;">
-                <div><strong>Phase 2:</strong> EC2 with Website + Database 
-                    <div class="progress-bar"><div class="progress-fill">100%</div></div>
-                </div>
-                <div style="margin-top: 15px;"><strong>Phase 3:</strong> Migration to RDS
-                    <div class="progress-bar"><div class="progress-fill">100%</div></div>
-                </div>
-                <div style="margin-top: 15px;"><strong>Phase 4:</strong> High Availability & Scaling
-                    <div class="progress-bar"><div class="progress-fill">100%</div></div>
-                </div>
-                <div style="margin-top: 15px;"><strong>Extra Credit:</strong> Infrastructure as Code (Terraform)
-                    <div class="progress-bar"><div class="progress-fill">100%</div></div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-number">3 / 13</div>
+        <h2>6. Individual Contributions</h2>
+        <h3>Member A: Frontend & Web Server</h3>
+        <ul>
+            <li>Deployed EC2 instances</li>
+            <li>Configured Apache/Nginx web server</li>
+            <li>Set up SSL/HTTPS</li>
+        </ul>
+        <h3>Member B: Database Management</h3>
+        <ul>
+            <li>Set up Amazon RDS</li>
+            <li>Configured database security and backups</li>
+            <li>Implemented data encryption at rest</li>
+        </ul>
+        <h3>Member C: Networking & Security</h3>
+        <ul>
+            <li>Designed VPC with public/private subnets</li>
+            <li>Configured security groups and NACLs</li>
+            <li>Set up network firewalls</li>
+        </ul>
+        <h3>Member D: Scaling & Terraform</h3>
+        <ul>
+            <li>Implemented Elastic Beanstalk</li>
+            <li>Configured auto-scaling</li>
+            <li>Developed Terraform scripts for Infrastructure as Code</li>
+        </ul>
     </div>
 
-    <!-- Slide 4: Solution Architecture -->
+    <!-- Slide 8: Final Project Summary -->
     <div class="slide">
-        <h2>Solution Architecture</h2>
-        <div class="architecture-box">
-            <h3 style="margin-top: 0;">Major Components</h3>
-            <div class="two-column">
-                <div>
-                    <div class="component">
-                        <strong>Frontend Layer</strong><br>
-                        • Application Load Balancer<br>
-                        • Route 53 DNS<br>
-                        • CloudFront CDN (optional)
-                    </div>
-                    <div class="component">
-                        <strong>Compute Layer</strong><br>
-                        • EC2 Instances / Elastic Beanstalk<br>
-                        • Auto Scaling Groups<br>
-                        • Multiple Availability Zones
-                    </div>
-                </div>
-                <div>
-                    <div class="component">
-                        <strong>Data Layer</strong><br>
-                        • Amazon RDS (MySQL/PostgreSQL)<br>
-                        • Multi-AZ deployment<br>
-                        • Automated backups
-                    </div>
-                    <div class="component">
-                        <strong>Network & Security</strong><br>
-                        • VPC with public/private subnets<br>
-                        • Security Groups & NACLs<br>
-                        • NAT Gateway
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-number">4 / 13</div>
+        <h2>7. Final Project Summary</h2>
+        <h3>What Went Well</h3>
+        <ul>
+            <li>Effective teamwork and communication</li>
+            <li>Successful implementation of Phases 2-4</li>
+            <li>Achieved high availability and scalability</li>
+        </ul>
+        <h3>Tradeoffs</h3>
+        <ul>
+            <li>Prioritized core features over advanced monitoring</li>
+            <li>Used AWS Free Tier to manage costs</li>
+        </ul>
+        <h3>Issues Overcome</h3>
+        <ul>
+            <li>Debugged network connectivity issues</li>
+            <li>Resolved database migration challenges</li>
+        </ul>
+        <h3>Lessons Learned</h3>
+        <ul>
+            <li>Importance of early planning and role assignment</li>
+            <li>Need for thorough testing before demo</li>
+        </ul>
     </div>
 
-    <!-- Slide 5: Architecture Diagram -->
+    <!-- Slide 9: Question Time -->
     <div class="slide">
-        <h2>Cloud Architecture Diagram</h2>
-        <div style="text-align: center; margin-top: 40px;">
-            <div style="background: white; padding: 40px; border-radius: 10px; display: inline-block;">
-                <svg width="800" height="400" viewBox="0 0 800 500">
-                    <rect x="50" y="50" width="700" height="400" fill="none" stroke="#0f3460" stroke-width="3" rx="10"/>
-                    <text x="70" y="80" fill="#0f3460" font-size="20" font-weight="bold">VPC</text>
-                    <rect x="80" y="100" width="300" height="150" fill="#e1f5ff" stroke="#00d4ff" stroke-width="2" rx="5"/>
-                    <text x="100" y="125" fill="#0f3460" font-size="16" font-weight="bold">Public Subnet</text>
-                    <rect x="80" y="270" width="300" height="150" fill="#ffe1e1" stroke="#e94560" stroke-width="2" rx="5"/>
-                    <text x="100" y="295" fill="#0f3460" font-size="16" font-weight="bold">Private Subnet</text>
-                    <rect x="110" y="140" width="120" height="50" fill="#00d4ff" rx="5"/>
-                    <text x="130" y="170" fill="white" font-size="14" font-weight="bold">Load Balancer</text>
-                    <rect x="250" y="140" width="100" height="50" fill="#4CAF50" rx="5"/>
-                    <text x="270" y="165" fill="white" font-size="12" font-weight="bold">EC2</text>
-                    <text x="265" y="180" fill="white" font-size="12" font-weight="bold">Instance</text>
-                    <rect x="110" y="310" width="240" height="80" fill="#e94560" rx="5"/>
-                    <text x="180" y="345" fill="white" font-size="16" font-weight="bold">Amazon RDS</text>
-                    <text x="165" y="370" fill="white" font-size="12">(MySQL/PostgreSQL)</text>
-                    <rect x="420" y="200" width="300" height="100" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
-                    <text x="440" y="225" fill="#0f3460" font-size="16" font-weight="bold">Auto Scaling Group</text>
-                    <text x="440" y="250" fill="#666" font-size="12">• Min: 2 instances</text>
-                    <text x="440" y="270" fill="#666" font-size="12">• Max: 6 instances</text>
-                    <text x="440" y="290" fill="#666" font-size="12">• Target: CPU 70%</text>
-                    <ellipse cx="400" cy="30" rx="80" ry="20" fill="#9c27b0"/>
-                    <text x="345" y="37" fill="white" font-size="14" font-weight="bold">Internet Gateway</text>
-                    <line x1="400" y1="50" x2="170" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                    <line x1="230" y1="165" x2="250" y2="165" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                    <line x1="300" y1="190" x2="230" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                            <polygon points="0 0, 10 3, 0 6" fill="#333"/>
-                        </marker>
-                    </defs>
-                </svg>
-            </div>
-        </div>
-        <div class="slide-number">5 / 13</div>
+        <h2>8. Question Time</h2>
+        <h3>Be Prepared to Answer:</h3>
+        <ul>
+            <li>Why did you choose this architecture?</li>
+            <li>What security measures did you implement?</li>
+            <li>How does your system handle scaling?</li>
+            <li>What was the most challenging part?</li>
+            <li>How did you divide the work?</li>
+            <li>What would you improve with more time?</li>
+            <li>How much does your solution cost per month?</li>
+        </ul>
     </div>
 
-    <!-- Slide 6: Budget Projection -->
+    <!-- Slide 10: Thank You -->
     <div class="slide">
-        <h2>Final Project Budget Projection</h2>
-        <div class="content">
-            <p>Monthly cost estimate using AWS Pricing Calculator:</p>
-            <table class="budget-table">
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Configuration</th>
-                        <th>Monthly Cost (USD)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>EC2 Instances</td>
-                        <td>2x t3.medium (Auto Scaling)</td>
-                        <td>$60.00</td>
-                    </tr>
-                    <tr>
-                        <td>Application Load Balancer</td>
-                        <td>1 ALB with moderate traffic</td>
-                        <td>$22.00</td>
-                    </tr>
-                    <tr>
-                        <td>Amazon RDS</td>
-                        <td>db.t3.medium, Multi-AZ</td>
-                        <td>$85.00</td>
-                    </tr>
-                    <tr>
-                        <td>VPC & Networking</td>
-                        <td>NAT Gateway, Data Transfer</td>
-                        <td>$45.00</td>
-                    </tr>
-                    <tr>
-                        <td>S3 Storage</td>
-                        <td>Static assets, backups (50GB)</td>
-                        <td>$2.00</td>
-                    </tr>
-                    <tr>
-                        <td>CloudWatch</td>
-                        <td>Monitoring & Logs</td>
-                        <td>$10.00</td>
-                    </tr>
-                    <tr style="background: rgba(233, 69, 96, 0.2); font-weight: bold;">
-                        <td colspan="2">TOTAL MONTHLY COST</td>
-                        <td>$224.00</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="margin-top: 20px; font-size: 18px; color: #00d4ff;">
-                <strong>Annual Projection:</strong> ~$2,688.00 | 
-                <strong>Cost per user (1000 users):</strong> ~$0.22/month
-            </p>
+        <div class="header">
+            <h1>Thank You!</h1>
+            <p><strong>Questions?</strong></p>
         </div>
-        <div class="slide-number">6 / 13</div>
-    </div>
-
-    <!-- Slide 7: Demo Placeholder -->
-    <div class="slide">
-        <h2>Live System Demonstration</h2>
-        <div class="content" style="text-align: center;">
-            <h3 style="margin-top: 60px; font-size: 36px;">🖥️ LIVE DEMO TIME</h3>
-            <p style="margin-top: 40px; font-size: 24px;">We will now demonstrate:</p>
-            <div style="margin-top: 40px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
-                <div class="component">✓ Running website functionality</div>
-                <div class="component">✓ AWS Console walkthrough</div>
-                <div class="component">✓ EC2 instances and Auto Scaling</div>
-                <div class="component">✓ RDS database configuration</div>
-                <div class="component">✓ VPC and network setup</div>
-                <div class="component">✓ Security groups and encryption</div>
-                <div class="component">✓ Load balancer operation</div>
-            </div>
-            <p style="margin-top: 60px; font-size: 20px; color: #00d4ff;">
-                <em>Duration: 3-5 minutes</em>
-            </p>
+        <div class="footer">
+            <p>University of Europe (UE) for Applied Sciences, Germany<br>
+            Cloud Computing and Distributed Systems<br>
+            January 23, 2026</p>
         </div>
-        <div class="slide-number">7 / 13</div>
-    </div>
-
-    <!-- Slide 8: Individual Contribution - Student A -->
-    <div class="slide">
-        <h2>Individual Contribution - Student A</h2>
-        <div class="content">
-            <h3>[Student A Name]</h3>
-            <div class="component">
-                <strong>Frontend & Web Server Configuration</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Configured EC2 instances for web hosting</li>
-                    <li>Set up and optimized Apache/Nginx web server</li>
-                    <li>Deployed application code and dependencies</li>
-                    <li>Implemented SSL/TLS certificates for HTTPS</li>
-                    <li>Configured CloudFront CDN for static content delivery</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Key Achievements</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Reduced page load time by 40% through optimization</li>
-                    <li>Successfully integrated with Application Load Balancer</li>
-                    <li>Implemented health checks for high availability</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Challenges Overcome</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Resolved session management across multiple instances</li>
-                    <li>Debugged connection issues between web tier and database</li>
-                </ul>
-            </div>
-        </div>
-        <div class="slide-number">8 / 13</div>
-    </div>
-
-    <!-- Slide 9: Individual Contribution - Student B -->
-    <div class="slide">
-        <h2>Individual Contribution - Student B</h2>
-        <div class="content">
-            <h3>[Student B Name]</h3>
-            <div class="component">
-                <strong>Database Management & Migration</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Initial database setup on EC2 instance</li>
-                    <li>Planned and executed migration to Amazon RDS</li>
-                    <li>Configured Multi-AZ deployment for high availability</li>
-                    <li>Set up automated backups and point-in-time recovery</li>
-                    <li>Implemented database encryption at rest</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Key Achievements</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Zero-downtime migration from EC2 to RDS</li>
-                    <li>Optimized database queries for 50% performance improvement</li>
-                    <li>Configured read replicas for scalability</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Challenges Overcome</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Managed character encoding issues during migration</li>
-                    <li>Tuned RDS parameters for optimal performance</li>
-                </ul>
-            </div>
-        </div>
-        <div class="slide-number">9 / 13</div>
-    </div>
-
-    <!-- Slide 10: Individual Contribution - Student C -->
-    <div class="slide">
-        <h2>Individual Contribution - Student C</h2>
-        <div class="content">
-            <h3>[Student C Name]</h3>
-            <div class="component">
-                <strong>Networking & Security Infrastructure</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Designed and implemented VPC architecture</li>
-                    <li>Configured public and private subnets across AZs</li>
-                    <li>Set up security groups and Network ACLs</li>
-                    <li>Deployed NAT Gateway for private subnet internet access</li>
-                    <li>Configured route tables and Internet Gateway</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Key Achievements</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Implemented defense-in-depth security strategy</li>
-                    <li>Created network segmentation following AWS best practices</li>
-                    <li>Documented complete network architecture</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Challenges Overcome</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Troubleshot routing issues between subnets</li>
-                    <li>Balanced security requirements with operational needs</li>
-                </ul>
-            </div>
-        </div>
-        <div class="slide-number">10 / 13</div>
-    </div>
-
-    <!-- Slide 11: Individual Contribution - Student D -->
-    <div class="slide">
-        <h2>Individual Contribution - Student D</h2>
-        <div class="content">
-            <h3>[Student D Name]</h3>
-            <div class="component">
-                <strong>Scaling & Infrastructure as Code</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Configured Application Load Balancer with health checks</li>
-                    <li>Implemented Auto Scaling groups with scaling policies</li>
-                    <li>Developed Terraform configuration for infrastructure</li>
-                    <li>Created automated deployment pipeline</li>
-                    <li>Performed cost analysis using AWS Pricing Calculator</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Key Achievements</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Full infrastructure reproducible via Terraform code</li>
-                    <li>Auto-scaling tested under load - scales 2-6 instances</li>
-                    <li>Completed comprehensive cost optimization analysis</li>
-                </ul>
-            </div>
-            <div class="component" style="margin-top: 20px;">
-                <strong>Challenges Overcome</strong>
-                <ul style="margin-top: 10px;">
-                    <li>Learned Terraform from scratch in 2 weeks</li>
-                    <li>Managed state files and dependency ordering</li>
-                </ul>
-            </div>
-        </div>
-        <div class="slide-number">11 / 13</div>
-    </div>
-
-    <!-- Slide 12: Project Summary -->
-    <div class="slide">
-        <h2>Final Project Summary</h2>
-        <div class="content">
-            <div class="two-column">
-                <div>
-                    <h3>What Went Well ✓</h3>
-                    <ul style="margin-top: 15px;">
-                        <li>Excellent team collaboration and communication</li>
-                        <li>Completed all phases including extra credit</li>
-                        <li>Successfully implemented HA architecture</li>
-                        <li>Zero downtime during database migration</li>
-                        <li>Met all functional requirements</li>
-                        <li>Stayed within budget constraints</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Tradeoffs Made ⚖️</h3>
-                    <ul style="margin-top: 15px;">
-                        <li>Used t3.medium instead of larger instances for cost</li>
-                        <li>Single region deployment (no multi-region DR)</li>
-                        <li>Limited CloudFront for cost optimization</li>
-                        <li>Basic monitoring vs. advanced observability</li>
-                    </ul>
-                </div>
-            </div>
-            <h3 style="margin-top: 40px;">What We Would Do Differently Next Time 🔄</h3>
-            <ul style="margin-top: 15px;">
-                <li>Start Terraform implementation earlier in the project</li>
-                <li>Implement CI/CD pipeline from the beginning</li>
-                <li>Add more comprehensive monitoring and alerting</li>
-                <li>Conduct load testing earlier to identify bottlenecks</li>
-                <li>Document architecture decisions in real-time</li>
-            </ul>
-        </div>
-        <div class="slide-number">12 / 13</div>
-    </div>
-
-    <!-- Slide 13: Questions -->
-    <div class="slide">
-        <h2>Questions & Discussion</h2>
-        <div class="content" style="text-align: center;">
-            <h3 style="font-size: 48px; margin-top: 100px; color: #00d4ff;">?</h3>
-            <p style="font-size: 32px; margin-top: 60px;">We're ready for your questions!</p>
-            <p style="font-size: 24px; margin-top: 40px; color: #00d4ff;">
-                Thank you for your attention
-            </p>
-            <div style="margin-top: 80px; font-size: 20px; color: #888;">
-                <p>Cloud Computing and Distributed Systems</p>
-                <p>University of Europe (UE), Germany</p>
-                <p>January 2026</p>
-            </div>
-        </div>
-        <div class="slide-number">13 / 13</div>
-    </div>
-
-    <div class="navigation">
-        <button onclick="window.print()">🖨️ Print All 13 Slides to PDF</button>
     </div>
 </body>
 </html>
